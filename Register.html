@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>User Authentication System</h1>
+    </header>
+
+    <main>
+        <section>
+
+            <h2>Register</h2>
+
+            <form onsubmit="register(); return false;">
+
+                <label for="name">Full Name</label><br>
+                <input type="text" id="name" placeholder="Full Name">
+                <br><br>
+
+                <label for="email">Email</label><br>
+                <input type="email" id="email" placeholder="Email">
+                <br><br>
+
+                <label for="mobilenumber">Mobile Number</label><br>
+                <input type="tel" id="mobilenumber" maxlength="10" placeholder="Mobile Number">
+                <br><br>
+
+                <label for="password">Password</label><br>
+                <input type="password" id="password" placeholder="Password">
+                <br><br>
+
+                <button type="submit">Register</button>
+
+            </form>
+
+            <p>
+                Already have an account?
+                <a href="login.html">Login here</a>
+            </p>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 User Authentication System</p>
+    </footer>
+
+    <script>
+
+        function register() {
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobilenumber = document.getElementById("mobilenumber").value.trim();
+            const password = document.getElementById("password").value;
+
+            if (!name || !email || !mobilenumber || !password) {
+                alert("Please fill all fields");
+                return;
+            }
+
+            if (!/^\d{10}$/.test(mobilenumber)) {
+                alert("Please enter a valid 10-digit mobile number");
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            const existingUser = users.find(
+                user => user.email === email
+            );
+
+            if (existingUser) {
+                alert("User already exists");
+                return;
+            }
+
+            const newUser = {
+                name,
+                email,
+                mobilenumber,
+                password
+            };
+
+            users.push(newUser);
+
+            localStorage.setItem(
+                "users",
+                JSON.stringify(users)
+            );
+
+            alert("Registration Successful");
+
+            window.location.href = "login.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

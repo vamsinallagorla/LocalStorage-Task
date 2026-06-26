@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>User Authentication System</h1>
+    </header>
+
+    <main>
+
+        <section>
+
+            <h2 style="text-align: center;">Welcome Home </h2>
+
+            <p>You have successfully logged in.</p>
+
+           <!-- <button onclick="logout()">Logout</button>-->
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 User Authentication System</p>
+    </footer>
+
+    <script>
+
+        function logout() {
+
+            localStorage.removeItem("users");
+
+            alert("Logged Out Successfully");
+
+            window.location.href = "login.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
