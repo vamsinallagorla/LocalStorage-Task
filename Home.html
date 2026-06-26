@@ -9,37 +9,32 @@
 
 <body>
 
-    <header>
-        <h1>User Authentication System</h1>
-    </header>
+    
 
     <main>
 
         <section>
 
-            <h2 style="text-align: center;">Welcome Home </h2>
+            <h2>Welcome Home 🎉</h2>
 
             <p>You have successfully logged in.</p>
 
-           <!-- <button onclick="logout()">Logout</button>-->
+            <button onclick="logout()">Logout</button>
 
         </section>
 
     </main>
 
-    <footer>
-        <p>&copy; 2026 User Authentication System</p>
-    </footer>
+    
 
     <script>
 
         function logout() {
 
-            localStorage.removeItem("users");
-
             alert("Logged Out Successfully");
 
-            window.location.href = "login.html";
+            window.location.href = "Login.html";
+
         }
 
     </script>
